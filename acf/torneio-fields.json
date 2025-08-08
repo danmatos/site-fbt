@@ -1,0 +1,67 @@
+[
+  {
+    "key": "group_torneio_fields",
+    "title": "Torneio \u2013 Campos",
+    "fields": [
+      {
+        "key": "field_clube",
+        "label": "Clube",
+        "name": "clube",
+        "type": "text"
+      },
+      {
+        "key": "field_cidade",
+        "label": "Cidade",
+        "name": "cidade",
+        "type": "text"
+      },
+      {
+        "key": "field_uf",
+        "label": "UF",
+        "name": "uf",
+        "type": "text",
+        "maxlength": 2
+      },
+      {
+        "key": "field_data_inicio",
+        "label": "Data In\u00edcio",
+        "name": "data_inicio",
+        "type": "date_picker",
+        "display_format": "Y-m-d",
+        "return_format": "Y-m-d",
+        "first_day": 1
+      },
+      {
+        "key": "field_data_fim",
+        "label": "Data Fim",
+        "name": "data_fim",
+        "type": "date_picker",
+        "display_format": "Y-m-d",
+        "return_format": "Y-m-d",
+        "first_day": 1
+      },
+      {
+        "key": "field_inscricao",
+        "label": "Link de Inscri\u00e7\u00e3o",
+        "name": "inscricao",
+        "type": "url"
+      },
+      {
+        "key": "field_regulamento",
+        "label": "Link do Regulamento",
+        "name": "regulamento",
+        "type": "url"
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "post_type",
+          "operator": "==",
+          "value": "torneio"
+        }
+      ]
+    ],
+    "active": true
+  }
+]
