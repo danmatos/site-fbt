@@ -12,6 +12,24 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
+
+      - name: Debug WP_URL
+        run: |
+          echo "WP_URL length: ${#WP_URL}"  # deve ser > 8
+          echo "WP_URL starts with https?"; [[ "$WP_URL" == https* ]] && echo OK || (echo "MISSING HTTPS" && exit 1)
+        env:
+          WP_URL: ${{ secrets.WP_URL }}
+
+      - name: Curl WP REST
+        run: |
+          set -e
+          echo "Testing: $WP_URL/wp-json/wp/v2/"
+          curl -I "$WP_URL/wp-json/wp/v2/" || true
+          echo "Testing torneio endpoint:"
+          curl -I "$WP_URL/wp-json/wp/v2/torneio" || true
+        env:
+          WP_URL: ${{ secrets.WP_URL }}
+          
       - run: npm ci
       - run: REPO_NAME=${{ secrets.REPO_NAME }} WP_URL=${{ secrets.WP_URL }} npm run build && npm run export
       - name: Add .nojekyll
