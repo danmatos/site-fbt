@@ -31,7 +31,7 @@ jobs:
           WP_URL: ${{ secrets.WP_URL }}
           
       - run: npm ci
-      - run: REPO_NAME=${{ secrets.REPO_NAME }} WP_URL=${{ secrets.WP_URL }} npm run build && npm run export
+      - run: REPO_NAME=${{ secrets.REPO_NAME }} WP_URL=${{ secrets.WP_URL }} ALLOW_EMPTY=1 npm run build && npm run export
       - name: Add .nojekyll
         run: echo > out/.nojekyll
       - uses: peaceiris/actions-gh-pages@v3
